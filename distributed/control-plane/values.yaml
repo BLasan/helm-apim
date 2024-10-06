@@ -201,9 +201,9 @@ wso2:
         properties:
           key: value
       # -- Super admin username
-      adminUsername: ""
+      adminUsername: "admin"
       # -- Super admin password
-      adminPassword: ""
+      adminPassword: "Admin123"
       databases:
         # -- Database type. eg: mysql, oracle, mssql, postgres
         type: "mysql"
@@ -213,7 +213,7 @@ wso2:
         # -- APIM AM_DB configurations.
         apim_db:
           # -- APIM AM_DB URL
-          url: "jdbc:mysql://mysql-apim-db.mysql.database.azure.com/apim_db?useSSL=false"
+          url: "jdbc:mysql://apim-mysql-db.mysql.database.azure.com/apim_db?useSSL=false"
           # -- APIM AM_DB username
           username: "apimadmin"
           # -- APIM AM_DB password
@@ -230,7 +230,7 @@ wso2:
         # -- APIM SharedDB configurations.
         shared_db:
           # -- APIM SharedDB URL
-          url: "jdbc:mysql://mysql-apim-db.mysql.database.azure.com/shared_db?useSSL=false"
+          url: "jdbc:mysql://apim-mysql-db.mysql.database.azure.com/shared_db?useSSL=false"
           # -- APIM SharedDB username
           username: "sharedadmin"
           # -- APIM SharedDB password
@@ -263,9 +263,9 @@ wso2:
             # -- Primary keystore alias
             alias: "wso2carbon"
             # -- Primary keystore password
-            password: ""
+            password: "wso2carbon"
             # -- Primary keystore key password
-            keyPassword: ""
+            keyPassword: "wso2carbon"
           tls:
             # -- TLS keystore enabled
             enabled: true
@@ -274,9 +274,9 @@ wso2:
             # -- TLS keystore alias
             alias: "wso2carbon"
             # -- TLS keystore password
-            password: ""
+            password: "wso2carbon"
             # -- TLS keystore key password
-            keyPassword: ""
+            keyPassword: "wso2carbon"
           internal:
             # -- Internal keystore enabled
             enabled: false
@@ -285,14 +285,14 @@ wso2:
             # -- Internal keystore alias
             alias: "wso2carbon"
             # -- Internal keystore password
-            password: ""
+            password: "wso2carbon"
             # -- Internal keystore key password
-            keyPassword: ""
+            keyPassword: "wso2carbon"
         truststore:
           # -- Truststore name
           name: "client-truststore.jks"
           # -- Truststore password
-          password: ""
+          password: "wso2carbon"
       
       gateway:
         # -- APIM Gateway environments
@@ -304,7 +304,7 @@ wso2:
           displayInApiConsole: true
           description: "This is a hybrid gateway that handles both production and sandbox token traffic."
           showAsTokenEndpointUrl: true
-          serviceName: "wso2am-gateway-service"
+          serviceName: "gateway-wso2am-gateway-service"
           servicePort: 9443
           wsHostname: "websocket.wso2.com"
           httpHostname: "gw.wso2.com"
@@ -379,9 +379,9 @@ wso2:
       # -- Container registry hostname
       registry: "apimrelease440.azurecr.io"
       # -- Azure ACR repository name consisting the image
-      repository: "wso2"
+      repository: "wso2am"
       # -- Docker image digest
-      digest: "sha256:3e593f81a33c0ac6fc85f30112fc61b63546972a790a1421c8e99c59666c88fb"
+      digest: "sha256:9795c3a92c00a82b09b967791f7222c5fdcbb7b4abb22f23f09dc26cfc1e3199"
       # -- Refer to the Kubernetes documentation on updating images (https://kubernetes.io/docs/concepts/containers/images/#updating-images)
       imagePullPolicy: Always
 
@@ -390,14 +390,14 @@ wso2:
       # Resource configurations defined here are applicable for all API Manager product profiles of this deployment
       requests:
         # -- Memory request for API Manager
-        memory: "2Gi"
+        memory: "3Gi"
         # -- CPU request for API Manager
-        cpu: "2000m"
+        cpu: "3000m"
       limits:
         # -- Memory limit for API Manager
-        memory: "3Gi"
+        memory: "4Gi"
         # -- CPU limit for API Manager
-        cpu: "3000m"
+        cpu: "4000m"
       jvm:
         memory:
           # -- JVM heap memory Xms
