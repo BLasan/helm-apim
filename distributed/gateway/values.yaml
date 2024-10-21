@@ -118,11 +118,11 @@ wso2:
   # -- WSO2 Choreo Analytics Parameters
   # If provided, these parameters will be used publish analytics data to Choreo Analytics environment (https://apim.docs.wso2.com/en/latest/observe/api-manager-analytics/configure-analytics/register-for-analytics/).
   choreoAnalytics:
-    enabled: false
+    enabled: true
     # -- Choreo Analytics cloud service endpoint
-    endpoint: ""
+    endpoint: "https://analytics-event-auth.choreo.dev/auth/v1"
     # -- On-premise key for Choreo Analytics
-    onpremKey: ""
+    onpremKey: "6a33a950-bd24-4bd1-a0c0-e85f1ab8e719"
   
   # -- ELK Analytics Parameters
   ELKAnalytics:
@@ -185,9 +185,9 @@ wso2:
 
       # -- APIM AI related configurations
       ai:
-        enabled: false
-        token: ""
-        endpoint: ""
+        enabled: true
+        token: "1bf140e1-ae27-4394-a4be-74819ddbcb77"
+        endpoint: "https://dev-tools.wso2.com/apim-ai-service"
 
       security:
         # -- Kubernetes secret containing the keystores and truststore
@@ -250,7 +250,7 @@ wso2:
       
       jwt:
         # Enable backend JWT generation in gateway
-        enabled: false
+        enabled: true
         # JWT encoding algorithm. Can be either base64 or base64url
         encoding: "base64"
         # JWT header name.
@@ -280,11 +280,11 @@ wso2:
         # -- Enable unlimited throttling tier
         unlimitedTier: true
         # -- Enable header based throttling
-        headerBasedThrottling: false
+        headerBasedThrottling: true
         # -- Enable JWT claim based throttling
-        jwtClaimBasedThrottling: false
+        jwtClaimBasedThrottling: true
         # -- Enable query param based throttling
-        queryParamBasedThrottling: false
+        queryParamBasedThrottling: true
 
       eventhub:
         # -- Event hub (control plane) enabled.
@@ -378,11 +378,11 @@ wso2:
     # Container image configurations
     image:
       # -- Container registry hostname
-      registry: "apimrelease440.azurecr.io"
-      # -- Azure ACR repository name consisting the image
-      repository: "wso2am"
+      registry: ""
+      # -- Azure ACR repository name consisting the image 
+      repository: ""
       # -- Docker image digest
-      digest: "sha256:9795c3a92c00a82b09b967791f7222c5fdcbb7b4abb22f23f09dc26cfc1e3199"
+      digest: ""
       # -- Refer to the Kubernetes documentation on updating images (https://kubernetes.io/docs/concepts/containers/images/#updating-images)
       imagePullPolicy: Always
 
@@ -441,7 +441,7 @@ wso2:
     replicas: 2
     # HPA configurations
     # -- Minimum replicas for HPA
-    minReplicas: 2
+    minReplicas: 2  
     # -- Maximum replicas for HPA
     maxReplicas: 3
     # -- Target CPU utilization percentage for HPA

@@ -192,7 +192,7 @@ wso2:
     mountStartupScript: false
     # TOML configurations
     configurations:
-      gatewayType: "Regular"
+      gatewayType: "Regular,APK"
       userStore:
         # -- User store type. 
         # https://apim.docs.wso2.com/en/latest/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store/
@@ -247,9 +247,9 @@ wso2:
 
       # -- APIM AI related configurations
       ai:
-        enabled: false
-        token: ""
-        endpoint: ""
+        enabled: true
+        token: "1bf140e1-ae27-4394-a4be-74819ddbcb77"
+        endpoint: "https://dev-tools.wso2.com/apim-ai-service"
 
       security:
         # -- Kubernetes secret containing the keystores and truststore
@@ -309,6 +309,18 @@ wso2:
           wsHostname: "websocket.wso2.com"
           httpHostname: "gw.wso2.com"
           websubHostname: "websub.wso2.com"
+        - name: "DefaultApk"
+          type: "hybrid"
+          gatewayType: "APK"
+          provider: "wso2"
+          displayInApiConsole: true
+          description: "This is a hybrid gateway that handles both production and sandbox token traffic."
+          showAsTokenEndpointUrl: true
+          serviceName: "gateway-wso2am-gateway-service"
+          servicePort: 9443
+          wsHostname: "websocket.wso2.com"
+          httpHostname: "default.gw.wso2.com:9095"
+          websubHostname: "websub.wso2.com"
 
       iskm:
         # -- If Identity Server is used as the Resident KM
@@ -326,8 +338,8 @@ wso2:
         internalKeyIssuer: ""
       
       devportal:
-        enableApplicationSharing:
-        applicationSharingType:
+        enableApplicationSharing: true
+        applicationSharingType: "default"
         applicationSharingImpl:
         displayMutipleVersions:
         displayDeprecatedAPIs:
@@ -335,10 +347,10 @@ wso2:
         enableRatings:
         enableForum:
         enableAnonymousMode:
-        enableCrossTenantSubscriptions:
+        enableCrossTenantSubscriptions: true
         defaultReservedUsername:
         loginUsernameCaseInsensitive:
-        enableKeyProvisioning:
+        enableKeyProvisioning: true
 
       # APIM OAuth configurations
       oauth_config:
@@ -377,11 +389,11 @@ wso2:
     # Container image configurations
     image:
       # -- Container registry hostname
-      registry: "apimrelease440.azurecr.io"
+      registry: ""
       # -- Azure ACR repository name consisting the image
-      repository: "wso2am"
+      repository: ""
       # -- Docker image digest
-      digest: "sha256:9795c3a92c00a82b09b967791f7222c5fdcbb7b4abb22f23f09dc26cfc1e3199"
+      digest: ""
       # -- Refer to the Kubernetes documentation on updating images (https://kubernetes.io/docs/concepts/containers/images/#updating-images)
       imagePullPolicy: Always
 
